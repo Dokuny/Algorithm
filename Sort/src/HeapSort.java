@@ -18,7 +18,6 @@
 public class HeapSort {
 
     public static void heapSort(int[] arr) {
-        // 내림차순
         // 기존 배열을 max heap 자료구조로 변경
         // 성질 3번 이용
         // 자식 노드가 있는 애들 까지만 반복문을 돌리려면 마지막 노드의 부모 노드 인덱스를 알면 된다.
@@ -27,9 +26,10 @@ public class HeapSort {
             heapify(arr, i, arr.length);
         }
 
-        // 내림차순 되어있는 것을 오름차순으로
+        // 오름차순으로 정렬
         for (int i = arr.length-1; i >0 ; i--) {
-            // 큰값을 맨 뒤부터 차곡차곡 채워넣음
+            // 힙 자료구조로 변경되어있는 상태이기 때문에 가장 앞의 값이 가장 큰 값이므로
+            // 맨 앞 값을 뒤로 보내주는 것을 반복한다.
             swap(arr, 0, i);
             heapify(arr,0,i);
         }
