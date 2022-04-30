@@ -19,6 +19,10 @@ public class BinarySearch {
         int right = arr.length - 1;
 
         while (left <= right) {
+            // 간혹가다 left+right가 Integer나 long 범위를 넘어버리는 경우가 생길 수 있다.
+            // ex) left = Integer.MAX_VALUE  /  right = Integer.MIN_VALUE -10
+            // 이러한 경우 중간값을 구하려고하면 제대로 구할 수 없는데 이런 경우
+            // left + (right - left) / 2 로 해주면 구할 수 있다.
             int mid = (left + right) / 2;
 
             if (arr[mid] == target) {
